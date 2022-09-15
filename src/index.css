@@ -11,3 +11,59 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.title {
+  font-size: 35pt;
+  text-align: center;
+  letter-spacing: 4pt;
+}
+
+.Game {
+  display: flex;
+  font-family: Oxygen, sans-serif;
+}
+
+.Player {
+  flex-grow: 1;
+}
+
+.Game p {
+  font-size: 35px;
+}
+
+.Computer {
+  flex-grow: 1;
+}
+
+.rolling-img {
+  max-width: 150px;
+}
+
+.Player span img {
+  max-width: 150px;
+  display: block;
+}
+
+.Player span {
+  text-align: center;
+  font-size: 10px;
+}
+
+.Game pre {
+  padding: 30px;
+  text-align: left;
+  font-size: 36px;
+  letter-spacing: normal;
+} 
+
+.Game .Player.selected img {
+  max-width: 150px;
+  display: block;
+}
+
+.Results img {
+  display: block;
+  max-width: 150px;
+  cursor: pointer;
+  margin: auto;
+}
