@@ -48,7 +48,6 @@ class App extends Component {
 
   render() {
     const { Started, Player, Computer, Name, Wins  } = this.state;
-    // handlePlayerClick = () => {};
     const Images = {
       Rock: rockImg,
       Paper: paperImg,
@@ -105,7 +104,8 @@ class App extends Component {
               ) : (
                   <div className='Intro'>
                     <input 
-                      type="text" 
+                      type="text"
+                      required
                       value={Name}
                       placeholder="Enter your name plz"
                       onChange={(e) => {
@@ -128,9 +128,15 @@ class App extends Component {
                   if (Winner === "Tie") {
                     return 'Nobody Wins...';
                   } else {
-                    if (Winner !== Player) {
+                    if (Winner === Player) {
+                      // this.setState({
+                      //   Wins: this.state.Wins + 1,
+                      // });
                       return Name + " Wins!";
                     } else {
+                      // this.setState({
+                      //   Wins: this.state.Wins - 1,
+                      // });
                       return "Computer Wins!";
                     }
                   }
