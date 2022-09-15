@@ -42,10 +42,12 @@ class App extends Component {
     Started: false,
     Player: null,
     Computer: null,
+    Name: '',
+    Wins: 0,
   };
 
   render() {
-    const { Started, Player, Computer } = this.state;
+    const { Started, Player, Computer, Name, Wins  } = this.state;
     // handlePlayerClick = () => {};
     const Images = {
       Rock: rockImg,
@@ -98,41 +100,50 @@ class App extends Component {
                       ) : (
                         <img className='rolling-img' src={rps} />
                       )}
-                      
-                      
-                      
                     </div>
                 </div>
-              ) : <Image
-              className='start'
-              src='https://i.gifer.com/4Civ.gif'
-              alt='start'  
-              onClick={() => {
-                this.setState({
-                  Started: true
-                });
-              }}
-            /> }
+              ) : (
+                  <div className='Intro'>
+                    <input 
+                      type="text" 
+                      value={Name}
+                      placeholder="Enter your name plz"
+                      onChange={(e) => {
+                        this.setState({ Name: e.target.value });
+                    }} />
+                    <Image
+                      className='start'
+                      src='https://i.gifer.com/4Civ.gif'
+                      alt='start'  
+                      onClick={() => {
+                        this.setState({
+                          Started: true
+                        });
+                    }} />
+                  </div>) }
             {Player && Computer && (
               <p className='Results'>
-                {WhoIsBig(Player, Computer) !== "Tie"} Wins!
                 { (() => {
                   const Winner = WhoIsBig(Player, Computer);
                   if (Winner === "Tie") {
-                    return 'Nobody Wins...'
+                    return 'Nobody Wins...';
                   } else {
-                    if (Winner === Player) {
-                      return "Player Wins!";
+                    if (Winner !== Player) {
+                      return Name + " Wins!";
                     } else {
                       return "Computer Wins!";
                     }
                   }
-                }) }
-                <img src={pointOne} alt="Restart" onClick={() => {
-                  this.setState({
-                    Started: false,
-                    Player: null,
-                    Computer: null,
+                })() }
+                <img 
+                  src={pointOne} 
+                  alt="Restart" 
+                  onClick={() => {
+                    this.setState({
+                      Started: false,
+                      Player: null,
+                      Computer: null,
+                      Wins: 0
                   })
                 }} />
               </p>
